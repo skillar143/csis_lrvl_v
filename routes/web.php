@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
+//use App\Http\Controllers\User\UsersController;
+use App\Http\Controllers\User\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +20,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// auth route for all users
+Route::group(['middleware' => ['auth']],function(){
+    route::get('/dashboard', [UsersController::class, 'login'])->name('dashboard');
+});
 
 require __DIR__.'/auth.php';
