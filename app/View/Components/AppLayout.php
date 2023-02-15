@@ -3,7 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-
+use Illuminate\Support\Facades\Auth;
 class AppLayout extends Component
 {
     /**
@@ -13,6 +13,19 @@ class AppLayout extends Component
      */
     public function render()
     {
-        return view('layouts.app');
+
+        if(auth::user()->hasRole('student')){
+            return view('student_layouts.app');
+
+         }elseif(auth::user()->hasRole('faculty')){
+            return view('layouts.app');
+
+
+         }elseif(auth::user()->hasRole('admin')){
+            return view('layouts.app');
+         }
+
+
+        // {default} return view('layouts.app');
     }
 }

@@ -12,16 +12,14 @@ class UsersController extends Controller
     public function login()
     {
          if(auth::user()->hasRole('student')){
-            return view('studentdash');
+            return view('student.dashboard');
 
          }elseif(auth::user()->hasRole('faculty')){
-            return view('facultydash');
+            return view('faculty.dashboard');
 
 
          }elseif(auth::user()->hasRole('admin')){
-            return view('admindash');
-
-
+            return view('student.dashboard');
          }
     }
 }

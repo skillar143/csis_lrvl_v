@@ -25,11 +25,30 @@
             <div class="masthead-content text-white">
                 <div class="container-fluid px-4 px-lg-0">
                     <h1 class="fst-italic lh-1 mb-4">Canossa San Pablo</h1>
-                    <p class="mb-5">"Be good, love the Lord, pray for those who do not know Him. What a great grace it is to know God."</p>
+
+                    <!-- Session Status -->
+                     <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                     <!-- Validation Errors -->
+                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
                         <div class="row input-group-newsletter">
+                            <form method="POST" action="{{ route('login') }}"">
+                                @csrf
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Email address</label>
+                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" type="email" name="email" :value="old('email')" required autofocus>
+                                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputPassword1">Password</label>
+                                  <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+                                </div>
+                                <div class="mt-2">
+                                    <button class="btn btn-info btn-lg log" type="submit" >{{ __('Log in') }}</button>
+                                </div>
 
-                            <div class="col-auto"><a class="btn btn-info btn-lg log"  href="{{ route('login') }}">Log in</a></div>
+                              </form>
                         </div>
                 </div>
             </div>
