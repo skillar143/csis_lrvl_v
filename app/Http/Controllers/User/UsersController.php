@@ -17,9 +17,8 @@ class UsersController extends Controller
          }elseif(auth::user()->hasRole('faculty')){
             return view('faculty.dashboard');
 
-
          }elseif(auth::user()->hasRole('admin')){
-            return view('student.dashboard');
+            return view('admin/dashboard.index');
          }
     }
 }
