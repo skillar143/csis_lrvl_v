@@ -2,8 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
-//use App\Http\Controllers\User\UsersController;
-use App\Http\Controllers\User\UsersController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,13 +15,26 @@ use App\Http\Controllers\User\UsersController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+
 
 
 // auth route for all users
 Route::group(['middleware' => ['auth']],function(){
-    route::get('/dashboard', [UsersController::class, 'login'])->name('dashboard');
+    route::get('/dashboard', [App\Http\Controllers\User\UserController::class, 'login'])->name('dashboard');
+});
+
+
+// for admin
+Route::group(['middleware' => ['auth', 'role:admin']],function(){
+
+    Route::prefix('/Program')->group(function(){
+    Route::get('/Course', [App\Http\Controllers\Admin\ProgramController::class, 'index'])->name('admin.course');
+
+    });
+
 });
 
 require __DIR__.'/auth.php';
