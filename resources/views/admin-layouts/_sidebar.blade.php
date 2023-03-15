@@ -44,7 +44,7 @@
 
     <!-- Nav Item - Faculty -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('admin.faculty') }}">
             <i class="fas fa-user-tie"></i>
             <span>Faculty</span></a>
     </li>
@@ -115,7 +115,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseArchive"
             aria-expanded="true" aria-controls="collapseArchive">
-            <i class="fas fa-users-slash"></i>
+            <i class="fas fa-users-slash "></i>
             <span>Archive</span>
         </a>
         <div id="collapseArchive" class="collapse" aria-labelledby="headingUtilities"
@@ -154,10 +154,10 @@
     </div>
 
     <!-- Sidebar Message -->
-    <div class="sidebar-card d-none d-lg-flex">
+    {{-- <div class="sidebar-card d-none d-lg-flex">
         <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
         <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
         <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-    </div>
+    </div> --}}
 
 </ul>

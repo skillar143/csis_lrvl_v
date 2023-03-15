@@ -6,7 +6,7 @@
     <!-- Topbar Search -->
     <h1 class="h3 text-gray-800 mr-auto mb-2">Course List</h1>
     <div class="float-right">
-        <a href="#" class="btn btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#AddcourseModal">
+        <a href="#" class="btn btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#AddfacultyModal">
             <span class="icon text-white-50">
                 <i class="fas fa-plus"></i>
             </span>
@@ -25,7 +25,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>Program Title</th>

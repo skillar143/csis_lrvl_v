@@ -1,24 +1,24 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Models\Program;
+
+use App\Models\Faculty;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
-class ProgramController extends Controller
+class FacultyController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
         //
-        return view('admin/course.index');
+        return view('admin/faculty.index');
     }
 
     /**
@@ -26,7 +26,6 @@ class ProgramController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
         //
@@ -38,21 +37,18 @@ class ProgramController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function store(Request $request)
     {
         //
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\Faculty  $faculty
      * @return \Illuminate\Http\Response
      */
-
-    public function show(Program $program)
+    public function show(Faculty $faculty)
     {
         //
     }
@@ -60,10 +56,10 @@ class ProgramController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\Faculty  $faculty
      * @return \Illuminate\Http\Response
      */
-    public function edit(Program $program)
+    public function edit(Faculty $faculty)
     {
         //
     }
@@ -72,10 +68,10 @@ class ProgramController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\Faculty  $faculty
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Program $program)
+    public function update(Request $request, Faculty $faculty)
     {
         //
     }
@@ -83,10 +79,10 @@ class ProgramController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\Faculty  $faculty
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Program $program)
+    public function destroy(Faculty $faculty)
     {
         //
     }

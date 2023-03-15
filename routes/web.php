@@ -31,7 +31,12 @@ Route::group(['middleware' => ['auth']],function(){
 Route::group(['middleware' => ['auth', 'role:admin']],function(){
 
     Route::prefix('/Program')->group(function(){
+        // admin course
     Route::get('/Course', [App\Http\Controllers\Admin\ProgramController::class, 'index'])->name('admin.course');
+
+        // admin faculty
+    Route::get('/Faculty', [App\Http\Controllers\Admin\FacultyController::class, 'index'])->name('admin.faculty');
+
 
     });
 
