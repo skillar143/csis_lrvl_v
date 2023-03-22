@@ -4,9 +4,9 @@
 
 <nav class="navbar navbar-expand navbar-light  topbar static-top ">
     <!-- Topbar Search -->
-    <h1 class="h3 text-gray-800 mr-auto mb-2">Course List</h1>
+    
     <div class="float-right">
-        <a href="#" class="btn btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#AddcourseModal">
+        <a href="#" class="btn btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#AddsubjectModal">
             <span class="icon text-white-50">
                 <i class="fas fa-plus"></i>
             </span>
@@ -21,27 +21,31 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered "  sort="asc" width="100%" cellspacing="0">
-                <thead>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead class=" text-center ">
                     <tr>
-                        <th class="col-6">Program Title</th>
+                        <th class="col-1">Subject Code</th>
+                        <th class="col-5">Subject Description</th>
                         <th class="col-2">Action</th>
+
                         
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($programs as $program)
+                @foreach ($subjects as $subject)
                    <tr>
-                     <td class=" text-center ">{{$program->Description}}</td>
-                     <td >
-                          <a href="#" class="btn btn-sm btn-info btn-icon-split">
+                     <td>{{$subject->subject_code}}</td>
+                     <td>{{$subject->subject_description}}</td>
+
+                     <td class="text-center">
+                          <a href="#" class="btn btn-sm btn-info btn-icon-split ">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-edit"></i>
                                 </span>
                                 <span class="text px-3">Edit</span>
                             </a>
 
-                            <a href="#" class="btn btn-sm btn-danger btn-icon-split">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split ">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-minus"></i>
                                 </span>

@@ -21,7 +21,7 @@ class RegisteredUserController extends Controller
     public function create()
     {
         //kapag gusto tangaalin register ipalin lang ang return abort(404);
-        return (view('auth.register'));
+        return (view('auth.login'));
     }
 
     /**

@@ -32,7 +32,13 @@ Route::group(['middleware' => ['auth', 'role:admin']],function(){
 
     Route::prefix('/Program')->group(function(){
         // admin course
-    Route::get('/Course', [App\Http\Controllers\Admin\ProgramController::class, 'index'])->name('admin.course');
+    Route::get('/Course', [App\Http\Controllers\Admin\ProgramController::class, 'index'])->name('course.index');
+    Route::post('/Cousre/Add', [App\Http\Controllers\Admin\ProgramController::class, 'store'])->name('course.store');
+
+    // admin subject
+    Route::get('/Subject', [App\Http\Controllers\Admin\SubjectController::class, 'index'])->name('subject.index');
+    Route::post('/Subject/Add', [App\Http\Controllers\Admin\SubjectController::class, 'store'])->name('subject.store');
+
 
         // admin faculty
     Route::get('/Faculty', [App\Http\Controllers\Admin\FacultyController::class, 'index'])->name('admin.faculty');

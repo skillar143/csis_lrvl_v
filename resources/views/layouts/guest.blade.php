@@ -30,10 +30,10 @@
                      <x-auth-session-status class="mb-4" :status="session('status')" />
 
                      <!-- Validation Errors -->
-                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                     <x-auth-validation-errors class="mb-4 text-danger" :errors="$errors" />
 
                         <div class="row input-group-newsletter">
-                            <form method="POST" action="{{ route('login') }}"">
+                            <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Email address</label>
@@ -46,6 +46,8 @@
                                 </div>
                                 <div class="mt-2">
                                     <button class="btn btn-info btn-lg log" type="submit" >{{ __('Log in') }}</button>
+
+                                    <!-- <button class="btn btn-danger btn-lg log" type="#" >{{ __('Guest') }}</button> -->
                                 </div>
 
                               </form>

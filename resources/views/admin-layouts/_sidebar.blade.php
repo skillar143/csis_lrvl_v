@@ -59,8 +59,8 @@
         <div id="collapseProgram" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Subject</a>
-                <a class="collapse-item" href="{{ route('admin.course') }}">Course</a>
+                <a class="collapse-item" href="{{ route('subject.index') }}">Subject</a>
+                <a class="collapse-item" href="{{ route('course.index') }}">Course</a>
             </div>
         </div>
     </li>
@@ -75,28 +75,28 @@
 
     <!-- Nav Item - Term -->
     <li class="nav-item ">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="#">
             <i class="fas fa-toggle-on"></i>
             <span>Activate Term</span></a>
     </li>
 
     <!-- Nav Item - Grade Summary -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="#">
             <i class="fas fa-award"></i>
             <span>Grade Summary</span></a>
     </li>
 
     <!-- Nav Item - Grade Sheet -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="#">
             <i class="fas fa-list-alt"></i>
             <span>Grading Sheet</span></a>
     </li>
 
      <!-- Nav Item - Assess Grade -->
      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="#">
             <i class="fas fa-id-card"></i>
             <span>Grading Sheet</span></a>
     </li>
@@ -154,10 +154,10 @@
     </div>
 
     <!-- Sidebar Message -->
-    {{-- <div class="sidebar-card d-none d-lg-flex">
+    <!-- <div class="sidebar-card d-none d-lg-flex">
         <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
         <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
         <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-    </div> --}}
+    </div>  -->
 
 </ul>

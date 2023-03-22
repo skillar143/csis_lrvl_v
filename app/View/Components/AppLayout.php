@@ -14,15 +14,16 @@ class AppLayout extends Component
     public function render()
     {
 
+
         if(auth::user()->hasRole('student')){
             return view('student_layouts.app');
 
          }elseif(auth::user()->hasRole('faculty')){
-            return view('layouts.app');
+            return view('faculty_layouts.master_layout');
 
 
          }elseif(auth::user()->hasRole('admin')){
-            return view('layouts.app');
+            return view('admin-layouts.master_layout');
          }
 
 

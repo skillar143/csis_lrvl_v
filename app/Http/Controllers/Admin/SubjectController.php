@@ -1,27 +1,26 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Models\Program;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Subject;
 
-
-class ProgramController extends Controller
+class SubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
         //
-        $programs = Program::all();
-        
 
-        return view('admin/course.index', compact('programs'));
+        $subjects = Subject::all();
+        
+    
+        return view('admin/subject.index', compact('subjects'));
     }
 
     /**
@@ -29,7 +28,6 @@ class ProgramController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
         //
@@ -41,31 +39,25 @@ class ProgramController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function store(Request $request)
     {
         //
-        //dd($request->description);
-        
-        Program::create([
-            'description' =>$request->description,
+        Subject::create([
+            'subject_code' =>$request->code,
+            'subject_description' =>$request->description
           
         ]);
 
-     
-        return redirect()->back()->with('success','Program Added!');
-    
-      
+        return redirect()->back()->with('success','Subject Added!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-    public function show(Program $program)
+    public function show($id)
     {
         //
     }
@@ -73,10 +65,10 @@ class ProgramController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Program $program)
+    public function edit($id)
     {
         //
     }
@@ -85,10 +77,10 @@ class ProgramController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Program  $program
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Program $program)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -96,10 +88,10 @@ class ProgramController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Program  $program
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Program $program)
+    public function destroy($id)
     {
         //
     }

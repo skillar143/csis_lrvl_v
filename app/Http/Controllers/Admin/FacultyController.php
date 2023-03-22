@@ -18,7 +18,8 @@ class FacultyController extends Controller
     public function index()
     {
         //
-        return view('admin/faculty.index');
+        $faculties = Faculty::all();
+        return view('admin/faculty.index', compact('faculties'));
     }
 
     /**
@@ -40,6 +41,8 @@ class FacultyController extends Controller
     public function store(Request $request)
     {
         //
+
+       
     }
 
     /**
