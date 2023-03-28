@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand navbar-light  topbar static-top ">
     <!-- Topbar Search -->
-    
+    <h1 class="h3 text-gray-800 mr-auto mb-2">Subject List</h1>
     <div class="float-right">
         <a href="#" class="btn btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#AddsubjectModal">
             <span class="icon text-white-50">
@@ -34,16 +34,19 @@
                 <tbody>
                 @foreach ($subjects as $subject)
                    <tr>
-                     <td>{{$subject->subject_code}}</td>
-                     <td>{{$subject->subject_description}}</td>
+                     <td id="code" >{{$subject->subject_code}}</td>
+                     <td id="description" >{{$subject->subject_description}}</td>
 
                      <td class="text-center">
-                          <a href="#" class="btn btn-sm btn-info btn-icon-split ">
+                          <a href="#" class="btn btn-sm btn-info btn-icon-split edit-subject" data-toggle="modal" data-target="#editSubject" 
+                          data-id="{{$subject->id}}" data-subcode="{{$subject->subject_code}}" data-description="{{$subject->subject_description}}">
                                 <span class="icon text-white-50">
-                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-pen"></i>
                                 </span>
                                 <span class="text px-3">Edit</span>
                             </a>
+
+
 
                             <a href="#" class="btn btn-sm btn-danger btn-icon-split ">
                                 <span class="icon text-white-50">
@@ -54,11 +57,13 @@
                      </td>
                    </tr>
                 @endforeach
-
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>
+
+
 
 @endsection

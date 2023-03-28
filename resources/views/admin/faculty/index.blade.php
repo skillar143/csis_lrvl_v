@@ -45,7 +45,7 @@
                      <td class="text-center">
                           <a href="#" class="btn btn-sm btn-info btn-icon-split my-1">
                                 <span class="icon text-white-50">
-                                <i class="fas fa-edit"></i>
+                               <i class="fas fa-pen"></i>
                                 </span>
                                 <span class="text px-3">Edit</span>
                             </a>

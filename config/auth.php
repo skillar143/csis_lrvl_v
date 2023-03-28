@@ -35,12 +35,23 @@ return [
     |
     */
 
+    //'guards' => [
+    //    'web' => [
+    //        'driver' => 'session',
+    //        'provider' => 'users',
+    //    ],
+    //],
+
+
     'guards' => [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+            'identifier' => 'username', // Use 'username' instead of 'email'
         ],
     ],
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -63,13 +74,20 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+            'username' => 'username', // Specify the 'username' field
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
+
+    //'providers' => [
+    //    'users' => [
+    //        'driver' => 'eloquent',
+    //        'model' => App\Models\User::class,
+    //    ],
+    //    // 'users' => [
+    //    //     'driver' => 'database',
+    //    //     'table' => 'users',
+    //    // ],
+    //],
 
     /*
     |--------------------------------------------------------------------------

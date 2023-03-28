@@ -18,8 +18,8 @@ class SubjectController extends Controller
         //
 
         $subjects = Subject::all();
-        
-    
+
+
         return view('admin/subject.index', compact('subjects'));
     }
 
@@ -45,7 +45,7 @@ class SubjectController extends Controller
         Subject::create([
             'subject_code' =>$request->code,
             'subject_description' =>$request->description
-          
+
         ]);
 
         return redirect()->back()->with('success','Subject Added!');
@@ -82,7 +82,14 @@ class SubjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        Subject::where('id','=',$id)->update([
+            'subject_code' =>$request->subcode,
+            'subject_description' =>$request->subdescription,
+
+            ]);
+
+            return redirect()->back()->with('update', 'Employee updated!');
     }
 
     /**

@@ -31,20 +31,29 @@ Route::group(['middleware' => ['auth']],function(){
 Route::group(['middleware' => ['auth', 'role:admin']],function(){
 
     Route::prefix('/Program')->group(function(){
+
+     // admin subject
+     Route::prefix('/Subject')->group(function(){
+        Route::get('/', [App\Http\Controllers\Admin\SubjectController::class, 'index'])->name('subject.index');
+        Route::post('/Add', [App\Http\Controllers\Admin\SubjectController::class, 'store'])->name('subject.store');
+        Route::put('/Update/{id}', [App\Http\Controllers\Admin\SubjectController::class, 'update'])->name('subject.update');
+    });
+
+
+
         // admin course
     Route::get('/Course', [App\Http\Controllers\Admin\ProgramController::class, 'index'])->name('course.index');
     Route::post('/Cousre/Add', [App\Http\Controllers\Admin\ProgramController::class, 'store'])->name('course.store');
 
-    // admin subject
-    Route::get('/Subject', [App\Http\Controllers\Admin\SubjectController::class, 'index'])->name('subject.index');
-    Route::post('/Subject/Add', [App\Http\Controllers\Admin\SubjectController::class, 'store'])->name('subject.store');
 
-
-        // admin faculty
-    Route::get('/Faculty', [App\Http\Controllers\Admin\FacultyController::class, 'index'])->name('admin.faculty');
 
 
     });
+
+    // admin faculty
+    Route::get('/Faculty', [App\Http\Controllers\Admin\FacultyController::class, 'index'])->name('admin.faculty');
+
+
 
 });
 

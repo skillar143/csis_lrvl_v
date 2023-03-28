@@ -16,10 +16,14 @@ class UserController extends Controller
          if(auth::user()->hasRole('student')){
             return view('student.dashboard');
 
-         }elseif(auth::user()->hasRole('faculty')){
+         }
+
+         if(auth::user()->hasRole('faculty')){
             return view('admin/dashboard.index');
 
-         }elseif(auth::user()->hasRole('admin')){
+         }
+
+         if(auth::user()->hasRole('admin')){
             return view('admin/dashboard.index');
          }
     }
