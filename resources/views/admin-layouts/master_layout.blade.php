@@ -110,19 +110,8 @@
      <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
 
 
-
-     <script>
-          $('.edit-subject').each(function() {
-             $(this).click(function(event){
-               $('#subjectUpdate').attr("action", "/Program/Subject/Update/"+($(this).data('id'))+"");
-               $('#id').val($(this).data('id'));
-               $('#subcode').val($(this).data('subcode'));
-               $('#subdescription').val($(this).data('description'));
-
-             })
-           });
-</script>
-
+     @include('admin-layouts._modalscript')
+    
 </body>
 
 </html>

@@ -88,9 +88,14 @@ class ProgramController extends Controller
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Program $program)
+    public function update(Request $request, Program $program, $id)
     {
         //
+        Program::where('id','=',$id)->update([
+            'Description' =>$request->description,
+            ]);
+
+            return redirect()->back()->with('update', 'Program updated!');
     }
 
     /**
@@ -99,8 +104,10 @@ class ProgramController extends Controller
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Program $program)
+    public function destroy($id)
     {
         //
+        Program::where('id','=',$id)->delete();
+        return redirect()->back()->with('delete', 'Program deleted!');
     }
 }

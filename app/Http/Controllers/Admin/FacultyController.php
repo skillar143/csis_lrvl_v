@@ -42,7 +42,22 @@ class FacultyController extends Controller
     {
         //
 
-       
+
+    $name = $request->fn." ".$request->mi.". ".$request->ln;
+//dd($name);
+        Faculty::create([
+           
+            'teacher_id' =>$request->teacherid,
+            'name' =>$name,
+            'sex' =>$request->gender,
+            'cellphone' =>$request->contact,
+            'address' =>$request->address,
+            
+
+        ]);
+
+        return redirect()->back()->with('success','Faculty Added!');
+        
     }
 
     /**
@@ -74,9 +89,21 @@ class FacultyController extends Controller
      * @param  \App\Models\Faculty  $faculty
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Faculty $faculty)
+    public function update(Request $request, Faculty $faculty, $id)
     {
         //
+
+        
+        Faculty::where('id','=',$id)->update([
+            'teacher_id' =>$request->teacherid,
+            'name' =>$request->name,
+            'sex' =>$request->gender,
+            'cellphone' =>$request->contact,
+            'address' =>$request->address,
+            
+            ]);
+
+            return redirect()->back()->with('update', 'Faculty updated!');
     }
 
     /**
@@ -85,8 +112,10 @@ class FacultyController extends Controller
      * @param  \App\Models\Faculty  $faculty
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Faculty $faculty)
+    public function destroy(Faculty $faculty, $id)
     {
         //
+        Faculty::where('id','=',$id)->delete();
+        return redirect()->back()->with('delete', 'Faculty deleted!');
     }
 }

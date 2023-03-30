@@ -46,9 +46,8 @@
                                 <span class="text px-3">Edit</span>
                             </a>
 
-
-
-                            <a href="#" class="btn btn-sm btn-danger btn-icon-split ">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split delete-subject" data-toggle="modal" data-target="#deleteSubject"
+                            data-id="{{$subject->id}}" data-subcode="{{$subject->subject_code}}" data-description="{{$subject->subject_description}}">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-minus"></i>
                                 </span>

@@ -9,6 +9,13 @@
 
 <!-- modal for admin edit -->
 @include('modals.admin._edit-subject')
+@include('modals.admin._edit-course')
+@include('modals.admin._edit-faculty')
+
+<!-- modal for admin delete-->
+@include('modals.admin._delete-subject')
+@include('modals.admin._delete-course')
+@include('modals.admin._delete-faculty')
 
 
 

@@ -89,7 +89,7 @@ class SubjectController extends Controller
 
             ]);
 
-            return redirect()->back()->with('update', 'Employee updated!');
+            return redirect()->back()->with('update', 'Subject updated!');
     }
 
     /**
@@ -101,5 +101,8 @@ class SubjectController extends Controller
     public function destroy($id)
     {
         //
+
+        Subject::where('id','=',$id)->delete();
+        return redirect()->back()->with('delete', 'Subject deleted!');
     }
 }

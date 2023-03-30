@@ -7,54 +7,43 @@
                 <i class="fa fa-window-close" aria-hidden="true"></i>
                 </button>
             </div>
-            <form action="#" method="post">
+            <form action="{{ route('faculty.store') }}" method="post">
                 @csrf
                 <div class="modal-body">
                     <!-- text box teacher id -->
                     <div class="form-group d-flex" >
-                        <label for="studentid" style="width: 20%; padding:1px">Teacher ID</label>
-                        <input type="text" class="form-control" name="studentid" autocomplete="off"  required>
+                        <label for="teacherid" style="width: 20%; padding:1px">Teacher ID</label>
+                        <input type="text" class="form-control" name="teacherid" id="teacherid" autocomplete="off"  required>
                     </div>
 
                     <div class="form-group d-flex" >
-                        <label for="studentid" style="width: 15%;" class="m-1">Teacher Name</label>
-                            <input type="text" class="form-control m-1" style="width: 30%;"name="fn" autocomplete="off" placeholder="First Name" required>
-                            <input type="text" class="form-control m-1" style="width: 25%;" name="mi" autocomplete="off" placeholder="Middle Initial" required>
+                        <label for="name" style="width: 15%;" class="m-1">Teacher Name</label>
+                            <input type="text" class="form-control m-1" style="width: 30%;"name="fn" id="name" autocomplete="off" placeholder="First Name" required>
+                            <input type="text" class="form-control m-1" style="width: 20%;" name="mi" autocomplete="off" placeholder="Middle Initial" required>
                             <input type="text" class="form-control m-1" style="width: 30%;"name="ln" autocomplete="off" placeholder="Last Name" required>
                     </div>
                     <!-- end teacher id -->
 
                     <!-- selection for gender -->
                     <div class="form-group d-flex">
-                        <label for="contact" style="width: 40%; padding:1px">Contact
-                            <input type="tel" class="form-control" name="contact" autocomplete="off" pattern="[0-9]{11}" required>
-                        </label>
+                        <label for="contact" style="padding:1px" class="m-1 mr-5">Contact</label>
+                        <input type="tel" style="width: 30%; padding:1px" class="form-control ml-3 mr-5" id="contact" name="contact" autocomplete="off" pattern="[0-9]{11}" required>
 
-                        <label for="gender" style="width: 20%; padding:1px">Sex
-                            <select name="gender" id="gender" class="form-control " required>
+                        <label for="gender" style="padding:1px" class="m-1 mr-5">Sex</label>
+                            <select name="gender" id="gender" style="width: 30%; padding:1px" class="form-control " required>
+                                <option selected disabled>Choose...</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
-                        </label>
-
-                        <label for="bday" style="width: 40%; padding:1px">Birthdate
-                            <input type="date" class="form-control" name="bday" autocomplete="off" required>
-                        </label>
                     </div>
                     <!-- end of selection gender -->
 
                     <!-- text box contact-->
-                    <div class="form-group d-flex">
-                        <label for="bplace" style="width: 100%; padding:1px">Birthplace
-                            <textarea type="text" class="form-control w-100" name="bplace" autocomplete="off" required></textarea>
-                        </label>
-
-
-                    </div>
+                   
                     <!-- text box address -->
                     <div class="form-group">
                         <label for="address" style="width: 100%; padding:1px">Address
-                            <textarea type="text" class="form-control" name="address" autocomplete="off" required></textarea>
+                            <textarea type="text" class="form-control" name="address" id="address" autocomplete="off" required></textarea>
                         </label>
                     </div>
                     <!-- end address -->

@@ -35,10 +35,17 @@
                         <div class="row input-group-newsletter">
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">Email address</label>
-                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" type="email" name="email" :value="old('email')" required autofocus>
-                                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                <div class="form-group" for="login">
+                                  <label for="username">{{ __('User ID or Email ') }}</label>
+                                  <input id="login" type="text" class="form-control{{ $errors->has('username') || $errors->has('email') ? ' is-invalid' : '' }}"
+                                           name="login" value="{{ old('username') ?: old('email') }}" placeholder="User ID or Email" required autofocus>
+
+                                           @if ($errors->has('username') || $errors->has('email'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+                                  
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleInputPassword1">Password</label>

@@ -23,7 +23,7 @@ class RegisteredUserController extends Controller
         //kapag gusto tangaalin register ipalin lang ang return abort(404);
        // return (view('auth.login'));
 
-       return abort(404);
+       return (view('auth.login'));
     }
 
     /**

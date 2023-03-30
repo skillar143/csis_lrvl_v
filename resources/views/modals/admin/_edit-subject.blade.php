@@ -24,14 +24,6 @@
                             <input type="text" class="form-control w-100" name="subdescription" autocomplete="off" id="subdescription" required>
                         </label>
                     </div>
-
-                    <div class="form-group">
-                        <input type="hidden" class="form-control m-1" name="id" id="id" autocomplete="off"
-                            placeholder="" required>
-                    </div>
-
-
-
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-sm btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>

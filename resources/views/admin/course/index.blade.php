@@ -34,19 +34,29 @@
                    <tr>
                      <td class=" text-center ">{{$program->Description}}</td>
                      <td >
-                          <a href="#" class="btn btn-sm btn-info btn-icon-split">
+
+                            <a href="#" class="btn btn-sm btn-success">
+                                <i class="fas fa-eye"></i>
+                            </a>
+
+                            <a href="#" class="btn btn-sm btn-info btn-icon-split edit-course" data-toggle="modal" data-target="#editCourse" 
+                                data-id="{{$program->id}}"  data-description="{{$program->Description}}">
                                 <span class="icon text-white-50">
-                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-pen"></i>
                                 </span>
                                 <span class="text px-3">Edit</span>
                             </a>
 
-                            <a href="#" class="btn btn-sm btn-danger btn-icon-split">
+
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split delete-course" data-toggle="modal" data-target="#deleteCourse"data-id="{{$program->id}}" 
+                                data-description="{{$program->Description}}">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-minus"></i>
                                 </span>
                                 <span class="text">Delete</span>
                             </a>
+
+                            
                      </td>
                    </tr>
                 @endforeach

@@ -98,7 +98,7 @@
      <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-id-card"></i>
-            <span>Grading Sheet</span></a>
+            <span>Assess Grade</span></a>
     </li>
 
     <!-- Divider -->
