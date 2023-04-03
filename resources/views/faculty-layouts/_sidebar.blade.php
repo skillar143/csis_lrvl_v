@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('dashboard') }}">
+        <a class="nav-link" href="">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -30,47 +30,40 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudent"
             aria-expanded="true" aria-controls="collapseStudent">
-            <i class="fas fa-user"></i>
-            <span>Student</span>
+            <i class="fas fa-users"></i>
+            <span>Students</span>
         </a>
         <div id="collapseStudent" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Type of student:</h6>
-                <a class="collapse-item" href="buttons.html">Regular Student</a>
-                <a class="collapse-item" href="cards.html">Irregular Student</a>
+                <h6 class="collapse-header">Subject:</h6>
+                <a class="collapse-item" href="cards.html">Subject</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Faculty -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.faculty') }}">
-            <i class="fas fa-user-tie"></i>
-            <span>Faculty</span></a>
-    </li>
-
-    <!-- Nav Item - Program Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProgram"
-            aria-expanded="true" aria-controls="collapseProgram">
-            <i class="fas fa-book"></i>
-            <span>Program</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudentGrade"
+            aria-expanded="true" aria-controls="collapseStudentGrade">
+            <i class="text-gray-400 f-s-1">A+</i>
+            <span>Student Grade</span>
         </a>
-        <div id="collapseProgram" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
+        <div id="collapseStudentGrade" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('subject.index') }}">Subject</a>
-                <a class="collapse-item" href="{{ route('course.index') }}">Course</a>
+                <h6 class="collapse-header">Subject:</h6>
+                <a class="collapse-item" href="buttons.html">Subject</a>
             </div>
         </div>
     </li>
 
+    <!-- Nav Item - Program Collapse Menu -->
+    
     <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- Heading -->
     <div class="sidebar-heading">
-       Grade Management
+       Class Record
     </div>
 
     <!-- Nav Item - Term -->
@@ -86,6 +79,7 @@
             <i class="fas fa-award"></i>
             <span>Grade Summary</span></a>
     </li>
+
     <!-- Nav Item - Grade Sheet -->
     <li class="nav-item">
         <a class="nav-link" href="#">
@@ -104,44 +98,13 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
-       User Management
-    </div>
+    
 
     <!-- Nav Item - Archive -->
 
     <!-- Nav Item - Archive Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseArchive"
-            aria-expanded="true" aria-controls="collapseArchive">
-            <i class="fas fa-users-slash "></i>
-            <span>Archive</span>
-        </a>
-        <div id="collapseArchive" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Type of User:</h6>
-                <a class="collapse-item" href="utilities-color.html">Student</a>
-                <a class="collapse-item" href="utilities-border.html">Faculty</a>
-            </div>
-        </div>
-    </li>
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
-            aria-expanded="true" aria-controls="collapseUser">
-            <i class="fas fa-users-slash"></i>
-            <span>Users</span>
-        </a>
-        <div id="collapseUser" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Type of User:</h6>
-                <a class="collapse-item" href="utilities-color.html">Student</a>
-                <a class="collapse-item" href="utilities-border.html">Faculty</a>
-            </div>
-        </div>
-    </li>
+    
 
 
     <!-- Divider -->

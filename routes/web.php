@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -31,7 +33,8 @@ Route::group(['middleware' => ['auth']],function(){
 Route::group(['middleware' => ['auth', 'role:admin']],function(){
 
     Route::prefix('/Program')->group(function(){
-     // admin subject
+     
+        // admin subject
      Route::prefix('/Subject')->group(function(){
         Route::get('/', [App\Http\Controllers\Admin\SubjectController::class, 'index'])->name('subject.index');
         Route::post('/Add', [App\Http\Controllers\Admin\SubjectController::class, 'store'])->name('subject.store');
@@ -57,9 +60,26 @@ Route::group(['middleware' => ['auth', 'role:admin']],function(){
 
     });
 
+    // admin curriculum
+    Route::prefix('/Curriculum')->group(function(){
+        Route::get('/{id}', [App\Http\Controllers\Admin\CurriculumController::class, 'index'])->name('curr.index');
+        Route::post('/Add', [App\Http\Controllers\Admin\CurriculumController::class, 'store'])->name('curr.store');
+        Route::put('/Update/{id}', [App\Http\Controllers\Admin\CurriculumController::class, 'update'])->name('curr.update');
+        Route::delete('/Delete/{id}',[App\Http\Controllers\Admin\CurriculumController::class, 'destroy'])->name('curr.destroy'); 
+
+    });
+
+    // admin student
+    Route::prefix('/student')->group(function(){
+        
+
+    });
+
 
 
 });
+
+
 
 require __DIR__.'/auth.php';
 

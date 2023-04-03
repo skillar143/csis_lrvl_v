@@ -35,7 +35,7 @@
                      <td class=" text-center ">{{$program->Description}}</td>
                      <td >
 
-                            <a href="#" class="btn btn-sm btn-success">
+                            <a href="{{ route('curr.index', $program->id ) }}" class="btn btn-sm btn-success">
                                 <i class="fas fa-eye"></i>
                             </a>
 

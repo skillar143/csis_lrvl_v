@@ -4,21 +4,23 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProgramsTable extends Migration
+class CreateCurriculaTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-
     public function up()
     {
-        Schema::create('programs', function (Blueprint $table) {
+        Schema::create('curricula', function (Blueprint $table) {
             $table->id();
-            $table->string('description');
+            $table->foreignID('course_id');
+            $table->string('subject_id');
+            $table->string('year');
+            $table->string('semester');
+            $table->string('units'); 
             $table->timestamps();
-
         });
     }
 
@@ -27,9 +29,8 @@ class CreateProgramsTable extends Migration
      *
      * @return void
      */
-
     public function down()
     {
-        Schema::dropIfExists('programs');
+        Schema::dropIfExists('curricula');
     }
 }
