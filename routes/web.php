@@ -33,13 +33,13 @@ Route::group(['middleware' => ['auth']],function(){
 Route::group(['middleware' => ['auth', 'role:admin']],function(){
 
     Route::prefix('/Program')->group(function(){
-     
+
         // admin subject
      Route::prefix('/Subject')->group(function(){
         Route::get('/', [App\Http\Controllers\Admin\SubjectController::class, 'index'])->name('subject.index');
         Route::post('/Add', [App\Http\Controllers\Admin\SubjectController::class, 'store'])->name('subject.store');
         Route::put('/Update/{id}', [App\Http\Controllers\Admin\SubjectController::class, 'update'])->name('subject.update');
-        Route::delete('/Delete/{id}',[App\Http\Controllers\Admin\SubjectController::class, 'destroy'])->name('subject.destroy');   
+        Route::delete('/Delete/{id}',[App\Http\Controllers\Admin\SubjectController::class, 'destroy'])->name('subject.destroy');
      });
 
      // admin course
@@ -47,7 +47,7 @@ Route::group(['middleware' => ['auth', 'role:admin']],function(){
         Route::get('/', [App\Http\Controllers\Admin\ProgramController::class, 'index'])->name('course.index');
         Route::post('/Add', [App\Http\Controllers\Admin\ProgramController::class, 'store'])->name('course.store');
         Route::put('/Update/{id}', [App\Http\Controllers\Admin\ProgramController::class, 'update'])->name('course.update');
-        Route::delete('/Delete/{id}',[App\Http\Controllers\Admin\ProgramController::class, 'destroy'])->name('course.destroy'); 
+        Route::delete('/Delete/{id}',[App\Http\Controllers\Admin\ProgramController::class, 'destroy'])->name('course.destroy');
      });
     });
 
@@ -56,22 +56,24 @@ Route::group(['middleware' => ['auth', 'role:admin']],function(){
         Route::get('/', [App\Http\Controllers\Admin\FacultyController::class, 'index'])->name('admin.faculty');
         Route::post('/Add', [App\Http\Controllers\Admin\FacultyController::class, 'store'])->name('faculty.store');
         Route::put('/Update/{id}', [App\Http\Controllers\Admin\FacultyController::class, 'update'])->name('faculty.update');
-        Route::delete('/Delete/{id}',[App\Http\Controllers\Admin\FacultyController::class, 'destroy'])->name('faculty.destroy'); 
+        Route::delete('/Delete/{id}',[App\Http\Controllers\Admin\FacultyController::class, 'destroy'])->name('faculty.destroy');
 
     });
 
     // admin curriculum
     Route::prefix('/Curriculum')->group(function(){
         Route::get('/{id}', [App\Http\Controllers\Admin\CurriculumController::class, 'index'])->name('curr.index');
-        Route::post('/Add', [App\Http\Controllers\Admin\CurriculumController::class, 'store'])->name('curr.store');
+        Route::post('/Add/{id}/{year}', [App\Http\Controllers\Admin\CurriculumController::class, 'store'])->name('curr.store');
         Route::put('/Update/{id}', [App\Http\Controllers\Admin\CurriculumController::class, 'update'])->name('curr.update');
-        Route::delete('/Delete/{id}',[App\Http\Controllers\Admin\CurriculumController::class, 'destroy'])->name('curr.destroy'); 
+        Route::delete('/Delete/{id}',[App\Http\Controllers\Admin\CurriculumController::class, 'destroy'])->name('curr.destroy');
 
     });
 
     // admin student
     Route::prefix('/student')->group(function(){
-        
+        Route::get('/reg', [App\Http\Controllers\Admin\StudentController::class, 'reg_index'])->name('reg-student.index');
+        Route::post('/add', [App\Http\Controllers\Admin\StudentController::class, 'store'])->name('student.store');
+
 
     });
 

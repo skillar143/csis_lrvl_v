@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCurriculaTable extends Migration
+class CreateAssessmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateCurriculaTable extends Migration
      */
     public function up()
     {
-        Schema::create('curricula', function (Blueprint $table) {
+        Schema::create('assessments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('subject_id');
             $table->bigInteger('course_id');
-            $table->string('year');
-            $table->string('semester');
+            $table->bigInteger('student_id');
+            $table->bigInteger('subject_id');
+            $table->string('academic_year');
             $table->string('units');
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreateCurriculaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curricula');
+        Schema::dropIfExists('assessments');
     }
 }

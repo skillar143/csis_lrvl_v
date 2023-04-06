@@ -11,17 +11,20 @@ class Program extends Model
 
     protected $fillable =['description'];
 
-    /**
-     * Get the subjects for the program.
-     *  public function subjects(): HasMany
-     *  {
-     *       return $this->hasMany(Subject::class);
-     *   }
-     */
-       
+
+     /** relationship */
+       public function subjects()
+       {
+            return $this->hasMany(Subject::class);
+    }
+
+
+       public function students(){
+        return $this->hasMany(Student::class);
+       }
 
 }
 
- 
 
-    
+
+

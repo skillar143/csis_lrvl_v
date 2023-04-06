@@ -13,7 +13,7 @@ class FacultyController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function index()
     {
@@ -46,18 +46,18 @@ class FacultyController extends Controller
     $name = $request->fn." ".$request->mi.". ".$request->ln;
 //dd($name);
         Faculty::create([
-           
+
             'teacher_id' =>$request->teacherid,
             'name' =>$name,
             'sex' =>$request->gender,
             'cellphone' =>$request->contact,
             'address' =>$request->address,
-            
+
 
         ]);
 
         return redirect()->back()->with('success','Faculty Added!');
-        
+
     }
 
     /**
@@ -93,14 +93,14 @@ class FacultyController extends Controller
     {
         //
 
-        
+
         Faculty::where('id','=',$id)->update([
             'teacher_id' =>$request->teacherid,
             'name' =>$request->name,
             'sex' =>$request->gender,
             'cellphone' =>$request->contact,
             'address' =>$request->address,
-            
+
             ]);
 
             return redirect()->back()->with('update', 'Faculty updated!');

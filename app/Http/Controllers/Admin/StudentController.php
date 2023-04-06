@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Student;
+use App\Models\Program;
 
 class StudentController extends Controller
 {
@@ -12,9 +14,14 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function  reg_index()
     {
         //
+        $programs = Program::all();
+        $students = Student::where('status','=',"1")->get();
+
+        return view ('admin/student.index',compact('students','programs'));
+
     }
 
     /**
@@ -36,6 +43,14 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+        if($request->status == "1"){
+            dd("regular");
+        }
+
+        if($request->status == "2"){
+            dd("irregular");
+        }
+
     }
 
     /**

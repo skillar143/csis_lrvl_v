@@ -22,8 +22,6 @@ class CreateStudentsTable extends Migration
             $table->string('bday');
             $table->string('bplace');
             $table->string('address');
-            $table->string('program');
-            $table->string('year');
             $table->string('status');
 
             $table->timestamps();

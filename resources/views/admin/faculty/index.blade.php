@@ -39,11 +39,11 @@
                      <td>{{$faculty->sex}}</td>
                      <td>{{$faculty->cellphone}}</td>
                      <td>{{$faculty->address}}</td>
-                     
-                    
+
+
 
                      <td class="text-center">
-                     <a href="#" class="btn btn-sm btn-info btn-icon-split edit-faculty" data-toggle="modal" data-target="#editFaculty" 
+                     <a href="#" class="btn btn-sm btn-info btn-icon-split edit-faculty" data-toggle="modal" data-target="#editFaculty"
                           data-id="{{$faculty->id}}" data-name="{{$faculty->name}}" data-sex="{{$faculty->sex}}"
                           data-number="{{$faculty->cellphone}}" data-address="{{$faculty->address}}" data-teacherid="{{$faculty->teacher_id}}">
                                 <span class="icon text-white-50">
