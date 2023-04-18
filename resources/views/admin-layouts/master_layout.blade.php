@@ -39,30 +39,31 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
+    
         <!-- Sidebar -->
         @include('admin-layouts._sidebar')
+        
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
+        
             <!-- Main Content -->
             <div id="content">
-
+            
                 <!-- Topbar -->
                 @include('admin-layouts._topbar')
                 <!-- End of Topbar -->
-
+                @include('admin-layouts._alert')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                
                     @yield('content')
 
                 </div>
                 <!-- /.container-fluid -->
-
+                
             </div>
             <!-- End of Main Content -->
-
+            
             <!-- Footer -->
             @include('admin-layouts._footer')
             <!-- End of Footer -->
@@ -77,7 +78,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
+   
     @include('admin-layouts._modal')
     <!-- Logout Modal-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -110,8 +111,14 @@
      <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
 
 
+    {{-- @if(session('Error'))
+     <div class="alert alert-danger">
+         {{ session('Error') }}
+     </div>
+    @endif --}}
+
      @include('admin-layouts._modalscript')
-    
+
 </body>
 
 </html>

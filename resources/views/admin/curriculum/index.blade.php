@@ -44,7 +44,7 @@
                      <td class=" ">{{ $subject->subjects->subject_description }}</td>
                      <td class="text-center">{{ $subject->units }}</td>
                      <td class="text-center">
-                        <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-faculty"  data-toggle="modal" data-target="#deleteFaculty"
+                        <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
                         data-id="" data-name="" data-sex="">
                             <span class="icon text-white-50">
                             <i class="fas fa-minus"></i>
@@ -72,8 +72,8 @@
                     <tr>
                         <th class="col-2">Subject Code</th>
                         <th class="col-6">Subject Title</th>
-                        <th class="col-2 text-center">Units</th>
-                        <th class="col-2">Action</th>
+                        <th class="col-1 text-center">Units</th>
+                        <th class="col-1 text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,7 +82,15 @@
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
-                        <td class=" ">4</td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="" data-name="" data-sex="">
+                                <span class="icon text-white-50">
+                                <i class="fas fa-minus"></i>
+                                </span>
+                                <span class="text d-none d-xl-block">Delete</span>
+                            </a>
+                        </td>
                     </tr>
                  @empty
                  <tr>
@@ -125,8 +133,8 @@
                     <tr>
                         <th class="col-2">Subject Code</th>
                         <th class="col-6">Subject Title</th>
-                        <th class="col-2 text-center">Units</th>
-                        <th class="col-2">Action</th>
+                        <th class="col-1 text-center">Units</th>
+                        <th class="col-1 text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -135,7 +143,15 @@
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
-                        <td class=" ">4</td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="" data-name="" data-sex="">
+                                <span class="icon text-white-50">
+                                <i class="fas fa-minus"></i>
+                                </span>
+                                <span class="text d-none d-xl-block">Delete</span>
+                            </a>
+                        </td>
                     </tr>
                  @empty
                  <tr>
@@ -156,8 +172,8 @@
                     <tr>
                         <th class="col-2">Subject Code</th>
                         <th class="col-6">Subject Title</th>
-                        <th class="col-2 text-center">Units</th>
-                        <th class="col-2">Action</th>
+                        <th class="col-1 text-center">Units</th>
+                        <th class="col-1 text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -166,7 +182,15 @@
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
-                        <td class=" ">4</td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="" data-name="" data-sex="">
+                                <span class="icon text-white-50">
+                                <i class="fas fa-minus"></i>
+                                </span>
+                                <span class="text d-none d-xl-block">Delete</span>
+                            </a>
+                        </td>
                     </tr>
                  @empty
                  <tr>
@@ -209,8 +233,8 @@
                     <tr>
                         <th class="col-2">Subject Code</th>
                         <th class="col-6">Subject Title</th>
-                        <th class="col-2 text-center">Units</th>
-                        <th class="col-2">Action</th>
+                        <th class="col-1 text-center">Units</th>
+                        <th class="col-1 text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -219,7 +243,15 @@
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
-                        <td class=" ">4</td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="" data-name="" data-sex="">
+                                <span class="icon text-white-50">
+                                <i class="fas fa-minus"></i>
+                                </span>
+                                <span class="text d-none d-xl-block">Delete</span>
+                            </a>
+                        </td>
                     </tr>
                  @empty
                  <tr>
@@ -240,8 +272,8 @@
                     <tr>
                         <th class="col-2">Subject Code</th>
                         <th class="col-6">Subject Title</th>
-                        <th class="col-2 text-center">Units</th>
-                        <th class="col-2">Action</th>
+                        <th class="col-1 text-center">Units</th>
+                        <th class="col-1 text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -250,7 +282,15 @@
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
-                        <td class=" ">4</td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="" data-name="" data-sex="">
+                                <span class="icon text-white-50">
+                                <i class="fas fa-minus"></i>
+                                </span>
+                                <span class="text d-none d-xl-block">Delete</span>
+                            </a>
+                        </td>
                     </tr>
                  @empty
                  <tr>
@@ -293,8 +333,8 @@
                     <tr>
                         <th class="col-2">Subject Code</th>
                         <th class="col-6">Subject Title</th>
-                        <th class="col-2 text-center">Units</th>
-                        <th class="col-2">Action</th>
+                        <th class="col-1 text-center">Units</th>
+                        <th class="col-1 text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -303,7 +343,15 @@
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
-                        <td class=" ">4</td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="" data-name="" data-sex="">
+                                <span class="icon text-white-50">
+                                <i class="fas fa-minus"></i>
+                                </span>
+                                <span class="text d-none d-xl-block">Delete</span>
+                            </a>
+                        </td>
                     </tr>
                  @empty
                  <tr>
@@ -324,8 +372,8 @@
                     <tr>
                         <th class="col-2">Subject Code</th>
                         <th class="col-6">Subject Title</th>
-                        <th class="col-2 text-center">Units</th>
-                        <th class="col-2">Action</th>
+                        <th class="col-1 text-center">Units</th>
+                        <th class="col-1 text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -334,7 +382,15 @@
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
-                        <td class=" ">4</td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="" data-name="" data-sex="">
+                                <span class="icon text-white-50">
+                                <i class="fas fa-minus"></i>
+                                </span>
+                                <span class="text d-none d-xl-block">Delete</span>
+                            </a>
+                        </td>
                     </tr>
                  @empty
                  <tr>

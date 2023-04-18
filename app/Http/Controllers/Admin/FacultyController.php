@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Faculty;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
+
 
 
 class FacultyController extends Controller
@@ -41,10 +45,11 @@ class FacultyController extends Controller
     public function store(Request $request)
     {
         //
-
+        $password = Hash::make('password');
 
     $name = $request->fn." ".$request->mi.". ".$request->ln;
 //dd($name);
+$email = $request->teacherid."@test.educ";
         Faculty::create([
 
             'teacher_id' =>$request->teacherid,
@@ -55,6 +60,15 @@ class FacultyController extends Controller
 
 
         ]);
+
+        User::create([
+         "name"=> $name,
+         "username"=> $request->teacherid,
+         "email" => $email,
+         "password" => "$password"
+        ])->attachRole('2');
+
+
 
         return redirect()->back()->with('success','Faculty Added!');
 
@@ -115,7 +129,21 @@ class FacultyController extends Controller
     public function destroy(Faculty $faculty, $id)
     {
         //
-        Faculty::where('id','=',$id)->delete();
+
+        $user = User::where('username', $id)->first();
+
+        if ($user) {
+            $user->roles()->detach();
+            Faculty::where('teacher_id','=',$id)->delete();
+            User::where('username','=',$id)->delete();
+        }
+
+
+
+
+
+
+
         return redirect()->back()->with('delete', 'Faculty deleted!');
     }
 }

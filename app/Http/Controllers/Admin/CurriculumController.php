@@ -18,28 +18,32 @@ class CurriculumController extends Controller
     public function index($id)
     {
         //
-        $subjects = Subject::all();
+        $subjects = Subject::orderBy('subject_code', 'asc')->get();
 
         $firstyear = Curriculum::with('subjects')
             ->where('year',"=","1")
             ->where('course_id',"=",$id)
+
             ->get();
 
         $secondyear = Curriculum::with('subjects')
             ->where('course_id',"=",$id)
             ->where('year',"=","2")
+            ->orderBy('subject_id', 'asc')
             ->get();
 
 
         $thirdyear = Curriculum::with('subjects')
             ->where('course_id',"=",$id)
             ->where('year',"=","3")
+            ->orderBy('subject_id', 'asc')
             ->get();
 
 
         $fourthyear = Curriculum::with('subjects')
             ->where('course_id',"=",$id)
             ->where('year',"=","4")
+            ->orderBy('subject_id', 'asc')
             ->get();
 
 

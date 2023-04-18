@@ -31,6 +31,9 @@
                           @endforeach
                           </select>
                         </div>
+                        <div class="col-2">
+                            <input type="text" placeholder="Units" name="unit[]" class="form-control mt-3 mr-1" required>
+                        </div>
                           <i class="fas fa-plus-square mr-2 mt-3 text-success addSecond" style="font-size: 2rem"></i>
                           <i class="fas fa-minus-square mt-3 text-danger" style="font-size: 2rem"></i>
                       </div>
@@ -38,7 +41,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-sm btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-sm btn-outline-success" >Update</button>
+                    <button type="submit" class="btn btn-sm btn-outline-success" >Save</button>
                 </div>
                 @foreach ($subjects as $subject)
 
@@ -62,6 +65,9 @@
                         <option value="{{ $subject->id }}">[{{ $subject->subject_code }}]-{{ $subject->subject_description }}</option>\
                         @endforeach\
                     </select>\
+            </div>\
+            <div class="col-2">\
+                <input type="text" placeholder="Units" name="unit[]" class="form-control mt-3 mr-1" required>\
             </div>\
             <i class="fas fa-plus-square mr-2 mt-3 text-success addSecond" style="font-size: 2rem"></i>\
             <i class="fas fa-minus-square mt-3 text-danger removeSecond" style="font-size: 2rem"></i>\

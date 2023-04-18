@@ -26,6 +26,8 @@ Route::get('/', function () {
 // auth route for all users
 Route::group(['middleware' => ['auth']],function(){
     route::get('/dashboard', [App\Http\Controllers\User\UserController::class, 'login'])->name('dashboard');
+    route::put('/changepassword/{username}', [App\Http\Controllers\User\UserController::class, 'changePass'])->name('change.pass');
+
 });
 
 

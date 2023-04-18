@@ -31,6 +31,9 @@
                           @endforeach
                           </select>
                         </div>
+                        <div class="col-2">
+                            <input type="text" placeholder="Units" name="unit[]" class="form-control mt-3 mr-1" required>
+                        </div>
                           <i class="fas fa-plus-square mr-2 mt-3 text-success addThird" style="font-size: 2rem"></i>
                           <i class="fas fa-minus-square mt-3 text-danger" style="font-size: 2rem"></i>
                       </div>
@@ -38,7 +41,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-sm btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-sm btn-outline-success" >Update</button>
+                    <button type="submit" class="btn btn-sm btn-outline-success" >Save</button>
                 </div>
                 @foreach ($subjects as $subject)
 
@@ -63,7 +66,10 @@
                         @endforeach\
                     </select>\
             </div>\
-            <i class="fas fa-plus-square mr-2 mt-3 text-success addthird" style="font-size: 2rem"></i>\
+            <div class="col-2">\
+                <input type="text" placeholder="Units" name="unit[]" class="form-control mt-3 mr-1" required>\
+            </div>\
+            <i class="fas fa-plus-square mr-2 mt-3 text-success addThird" style="font-size: 2rem"></i>\
             <i class="fas fa-minus-square mt-3 text-danger removeThird" style="font-size: 2rem"></i>\
         </div>'
       $('.inputs_third').append(html);
