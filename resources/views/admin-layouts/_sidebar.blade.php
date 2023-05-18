@@ -36,12 +36,11 @@
         <div id="collapseStudent" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Type of student:</h6>
-                <a class="collapse-item" href="{{ route('reg-student.index') }}">Regular Student</a>
-                <a class="collapse-item" href="cards.html">Irregular Student</a>
+                <a class="collapse-item" href="{{ route('student.index','0') }}">Regular Student</a>
+                <a class="collapse-item" href="{{ route('student.index','1') }}">Irregular Student</a>
             </div>
         </div>
     </li>
-
     <!-- Nav Item - Faculty -->
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.faculty') }}">
@@ -75,7 +74,7 @@
 
     <!-- Nav Item - Term -->
     <li class="nav-item ">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('dashboard') }}" data-toggle="modal" data-target="#gradingPeriod">
             <i class="fas fa-toggle-on"></i>
             <span>Activate Term</span></a>
     </li>
@@ -111,7 +110,7 @@
     <!-- Nav Item - Archive -->
 
     <!-- Nav Item - Archive Collapse Menu -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseArchive"
             aria-expanded="true" aria-controls="collapseArchive">
             <i class="fas fa-users-slash "></i>
@@ -125,7 +124,7 @@
                 <a class="collapse-item" href="utilities-border.html">Faculty</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
@@ -137,8 +136,8 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Type of User:</h6>
-                <a class="collapse-item" href="utilities-color.html">Student</a>
-                <a class="collapse-item" href="utilities-border.html">Faculty</a>
+                <a class="collapse-item" href="{{ route('users.view','student') }}">Student</a>
+                <a class="collapse-item" href="{{ route('users.view','faculty') }}">Faculty</a>
             </div>
         </div>
     </li>

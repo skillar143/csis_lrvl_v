@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta name="csis" content="">
     <meta name="Jerome L Bello" content="">
 
@@ -24,7 +25,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
 
      <!-- Custom styles for this page -->
      <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
@@ -53,6 +54,7 @@
                 @include('admin-layouts._topbar')
                 <!-- End of Topbar -->
                 @include('admin-layouts._alert')
+           
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                 
@@ -80,6 +82,9 @@
     </a>
    
     @include('admin-layouts._modal')
+
+    @yield('script')
+
     <!-- Logout Modal-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 
@@ -110,12 +115,11 @@
      <!-- Page level custom scripts -->
      <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
 
-
-    {{-- @if(session('Error'))
-     <div class="alert alert-danger">
-         {{ session('Error') }}
-     </div>
-    @endif --}}
+     <script>
+   setTimeout(function() {
+       $('.auto-dismiss').alert('close');
+    }, 3000);
+</script>
 
      @include('admin-layouts._modalscript')
 

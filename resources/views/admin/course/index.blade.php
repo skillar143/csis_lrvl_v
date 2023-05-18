@@ -2,7 +2,7 @@
 
 @section('content')
 
-<nav class="navbar navbar-expand navbar-light  topbar static-top ">
+<nav class="navbar navbar-expand navbar-light  topbar static-top animated--grow-in">
     <!-- Topbar Search -->
     <h1 class="h3 text-gray-800 mr-auto mb-2">Course List</h1>
     <div class="float-right">
@@ -15,17 +15,18 @@
 </div>
 </nav>
 
-<div class="card shadow mb-4">
+<div class="card shadow mb-4 animated--grow-in">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Programs</h6>
     </div>
-    <div class="card-body">
+    <div class="card-body p-5">
         <div class="table-responsive">
-            <table class="table table-bordered "  sort="asc" width="100%" cellspacing="0">
-                <thead>
+            <table class="table p-3"  sort="asc" width="100%" cellspacing="0">
+                <thead class="text-dark">
                     <tr>
-                        <th class="col-6">Program Title</th>
-                        <th class="col-2">Action</th>
+                        <th class="col-4">Program Title</th>
+                        <th class="col-1">RLE status</th>
+                        <th class="col-1">Action</th>
 
                     </tr>
                 </thead>
@@ -33,9 +34,10 @@
                 @foreach ($programs as $program)
                    <tr>
                      <td class="text-center h5 font-weight-bold">{{$program->description}}</td>
-                     <td >
-
-                            <a href="{{ route('curr.index', $program->id ) }}" class="btn btn-sm btn-success btn-icon-split m-1">
+                     <td class="text-center font-weight-bold">{{$program->getStatus()}}</td>
+                     <td class="d-flex">
+                       
+                        <a href="{{ route('curr.index', $program->id ) }}" class="btn btn-sm btn-success btn-icon-split m-1">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-eye"></i>
                                     </span>
@@ -58,8 +60,7 @@
                                 </span>
                                 <span class="text d-none d-xl-block">Delete</span>
                             </a>
-
-
+                        
                      </td>
                    </tr>
                 @endforeach

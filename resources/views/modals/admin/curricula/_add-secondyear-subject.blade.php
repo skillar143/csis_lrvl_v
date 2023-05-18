@@ -9,7 +9,7 @@
             </div>
             <form  action="{{ route('curr.store',[$course->id ,"2"]) }}" method="POST">
             @csrf
-                <div class="modal-body" id="subject">
+                <div class="modal-body px-5" id="subject">
                     <div class="form-row">
                         <div class="mt-3">
                             <label>Semester</label>
@@ -24,7 +24,7 @@
                       <div class="form-row d-flex align-items-center">
                         <div class="col mb-3">
                           <label for="validationCustom03">Add Subject</label>
-                          <select name="code[]" id="c" class="form-control" required>
+                          <select name="code[]" class="form-control" required>
                           <option selected disabled value="">Choose...</option>
                           @foreach ($subjects as $subject)
                             <option  value="{{ $subject->id }}">[{{ $subject->subject_code }}]-{{ $subject->subject_description }}</option>

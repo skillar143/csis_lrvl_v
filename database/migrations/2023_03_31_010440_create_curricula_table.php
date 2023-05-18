@@ -19,7 +19,7 @@ class CreateCurriculaTable extends Migration
             $table->bigInteger('course_id');
             $table->string('year');
             $table->string('semester');
-            $table->string('units');
+            $table->integer('units');
             $table->timestamps();
         });
     }

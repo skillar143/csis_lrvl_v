@@ -1,13 +1,14 @@
 @extends('admin-layouts.master_layout')
 
 @section('content')
-<nav class="navbar navbar-expand navbar-light  topbar static-top ">
+<nav class="navbar navbar-expand navbar-light  topbar static-top animated--fade-in">
     <!-- Topbar Search -->
+
     <h1 class="h3 text-gray-800 mr-auto mb-2"> {{ $course->description }}</h1>
 </nav>
 
 <!-- first year -->
-<div class="card shadow mb-4">
+<div class="card shadow mb-4 ">
     <div class="card-header py-3 d-flex">
         <div class="">
             <h6 class="m-0 font-weight-bold text-primary h5">1st Year Curriculum</h6>
@@ -37,6 +38,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                
 
                 @forelse ($firstyear->where('semester', '1') as $subject )
                    <tr>
@@ -44,14 +46,15 @@
                      <td class=" ">{{ $subject->subjects->subject_description }}</td>
                      <td class="text-center">{{ $subject->units }}</td>
                      <td class="text-center">
-                        <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
-                        data-id="" data-name="" data-sex="">
-                            <span class="icon text-white-50">
-                            <i class="fas fa-minus"></i>
-                            </span>
-                            <span class="text d-none d-xl-block">Delete</span>
-                        </a>
-                    </td>
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curricula"  data-toggle="modal" data-target="#deleteCurr"
+                                data-id="{{ $subject->subjects->id }}" data-description="{{ $subject->subjects->subject_description }}" data-yid="{{ $course->id }}"
+                                data-code="{{ $subject->subjects->subject_code }}">
+                                <span class="icon text-white-50">
+                                <i class="fas fa-minus"></i>
+                                </span>
+                                <span class="text d-none d-xl-block">Delete</span>
+                            </a>
+                        </td>
                    </tr>
                 @empty
                 <tr>
@@ -64,7 +67,7 @@
                 </tbody>
             </table>
         </div>
-<!-- second semester -->
+    <!-- second semester -->
         <p class="m-0 font-weight-bold text-primary h6"> 2nd Semester</p>
     <div class="table-responsive">
             <table class="table table-bordered"  sort="asc" width="100%" cellspacing="0">
@@ -83,8 +86,9 @@
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
-                            data-id="" data-name="" data-sex="">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curricula"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="{{ $subject->subjects->id }}" data-description="{{ $subject->subjects->subject_description }}" data-yid="{{ $course->id }}"
+                            data-code="{{ $subject->subjects->subject_code }}">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-minus"></i>
                                 </span>
@@ -107,7 +111,8 @@
 
 </div>
 
-<!-- second year -->
+@if(!$firstyear->isEmpty())
+    <!-- second year -->
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex">
         <div class="">
@@ -144,8 +149,9 @@
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
-                            data-id="" data-name="" data-sex="">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curricula"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="{{ $subject->subjects->id }}" data-description="{{ $subject->subjects->subject_description }}" data-yid="{{ $course->id }}"
+                            data-code="{{ $subject->subjects->subject_code }}">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-minus"></i>
                                 </span>
@@ -164,7 +170,7 @@
                 </tbody>
             </table>
         </div>
-<!-- second semester -->
+    <!-- second semester -->
         <p class="m-0 font-weight-bold text-primary h6"> 2nd Semester</p>
     <div class="table-responsive">
             <table class="table table-bordered"  sort="asc" width="100%" cellspacing="0">
@@ -183,8 +189,9 @@
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
-                            data-id="" data-name="" data-sex="">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curricula"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="{{ $subject->subjects->id }}" data-description="{{ $subject->subjects->subject_description }}" data-yid="{{ $course->id }}"
+                            data-code="{{ $subject->subjects->subject_code }}">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-minus"></i>
                                 </span>
@@ -205,9 +212,10 @@
         </div>
     </div>
 </div>
+@endif
 
+@if(!$secondyear->isEmpty())
 <!-- third year -->
-
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex">
         <div class="">
@@ -244,8 +252,9 @@
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
-                            data-id="" data-name="" data-sex="">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curricula"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="{{ $subject->subjects->id }}" data-description="{{ $subject->subjects->subject_description }}" data-yid="{{ $course->id }}"
+                            data-code="{{ $subject->subjects->subject_code }}">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-minus"></i>
                                 </span>
@@ -264,7 +273,7 @@
                 </tbody>
             </table>
         </div>
-<!-- second semester -->
+    <!-- second semester -->
         <p class="m-0 font-weight-bold text-primary h6"> 2nd Semester</p>
     <div class="table-responsive">
             <table class="table table-bordered"  sort="asc" width="100%" cellspacing="0">
@@ -283,8 +292,9 @@
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
-                            data-id="" data-name="" data-sex="">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curricula"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="{{ $subject->subjects->id }}" data-description="{{ $subject->subjects->subject_description }}" data-yid="{{ $course->id }}"
+                            data-code="{{ $subject->subjects->subject_code }}">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-minus"></i>
                                 </span>
@@ -305,9 +315,10 @@
         </div>
     </div>
 </div>
+@endif
 
+@if(!$thirdyear->isEmpty())
 <!-- fourth year -->
-
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex">
         <div class="">
@@ -344,8 +355,9 @@
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
-                            data-id="" data-name="" data-sex="">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curricula"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="{{ $subject->subjects->id }}" data-description="{{ $subject->subjects->subject_description }}" data-yid="{{ $course->id }}"
+                            data-code="{{ $subject->subjects->subject_code }}">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-minus"></i>
                                 </span>
@@ -364,7 +376,7 @@
                 </tbody>
             </table>
         </div>
-<!-- second semester -->
+    <!-- second semester -->
         <p class="m-0 font-weight-bold text-primary h6"> 2nd Semester</p>
     <div class="table-responsive">
             <table class="table table-bordered"  sort="asc" width="100%" cellspacing="0">
@@ -383,8 +395,9 @@
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
                         <td class="text-center">{{ $subject->units }}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curr"  data-toggle="modal" data-target="#deleteCurr"
-                            data-id="" data-name="" data-sex="">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-curricula"  data-toggle="modal" data-target="#deleteCurr"
+                            data-id="{{ $subject->subjects->id }}" data-description="{{ $subject->subjects->subject_description }}" data-yid="{{ $course->id }}"
+                            data-code="{{ $subject->subjects->subject_code }}">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-minus"></i>
                                 </span>
@@ -406,10 +419,12 @@
     </div>
 
 </div>
+@endif
 
-@include('modals.admin._add-firstyear-subject')
-@include('modals.admin._add-secondyear-subject')
-@include('modals.admin._add-thirdyear-subject')
-@include('modals.admin._add-fourthyear-subject')
+
+@include('modals.admin.curricula._add-firstyear-subject')
+@include('modals.admin.curricula._add-secondyear-subject')
+@include('modals.admin.curricula._add-thirdyear-subject')
+@include('modals.admin.curricula._add-fourthyear-subject')
 
 @endsection

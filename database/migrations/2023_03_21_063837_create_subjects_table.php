@@ -17,6 +17,8 @@ class CreateSubjectsTable extends Migration
             $table->id();
             $table->string('subject_code');
             $table->string('subject_description');
+            $table->integer('subject_laboratory_status');
+            $table->integer('subject_type');
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@
             <form id="courseUpdate" method="POST">
             @method('PUT')
             @csrf
-                <div class="modal-body">
+                <div class="modal-body px-5 py-4">
                     <div class="form-group">
                         <input type="text" class="form-control" name="description" id="edescription" autocomplete="off"
                             placeholder="Program Title" required>

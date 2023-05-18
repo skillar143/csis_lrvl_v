@@ -24,23 +24,18 @@ class user_seeder extends Seeder
 
         $password = Hash::make('password');
 
+        // cashier
+        $user = new User(["name"=> "Cashier", "username"=> "cashier", "email" => "cashier@test.com","password" => "$password"]); 
+        $user->save();
+        event(new Registered($user));
+
        // admin
         $user = new User(["name"=> "Admin", "username"=> "admin", "email" => "admin@test.com","password" => "$password"]); 
         $user->save();
         $user->attachRole('1');
         event(new Registered($user));
 
-        //test faculty
-        $user = new User(["name"=> "Faculty", "username"=> "faculty", "email" => "faculty@test.com","password" => "$password"]); 
-        $user->save();
-        $user->attachRole('2');
-        event(new Registered($user));
-
-        //test student
-        $user = new User(["name"=> "Student", "username"=> "student", "email" => "student@test.com","password" => "$password"]); 
-        $user->save();
-        $user->attachRole('3');
-        event(new Registered($user));
+       
 
         /** faculty user seeder */
         $user = new User(["name"=> "Lucila M. Bujactin", "username"=> "FCF001", "email" => "FCF001@test.com" ,"password" => "$password"]); 

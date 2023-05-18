@@ -51,7 +51,7 @@
                 <!-- Topbar -->
                 @include('faculty-layouts._topbar')
                 <!-- End of Topbar -->
-
+                @include('admin-layouts._alert')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -109,7 +109,11 @@
      <!-- Page level custom scripts -->
      <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
 
-
+     <script>
+        setTimeout(function() {
+            $('.auto-dismiss').alert('close');
+         }, 3000);
+     </script>
      @include('admin-layouts._modalscript')
     
 </body>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Models\Program;
+use App\Models\Grading_status;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -19,9 +20,9 @@ class ProgramController extends Controller
     {
         //
         $programs = Program::all();
-        
+        $status = Grading_status::find(1);
 
-        return view('admin/course.index', compact('programs'));
+        return view('admin/course.index', compact('programs','status'));
     }
 
     /**
@@ -46,16 +47,17 @@ class ProgramController extends Controller
     {
         //
         //dd($request->description);
-        
+
         Program::create([
             'description' =>$request->description,
-          
+            'rle_status' =>$request->status,
+
         ]);
 
-     
+
         return redirect()->back()->with('success','Program Added!');
-    
-      
+
+
     }
 
     /**

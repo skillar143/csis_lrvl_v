@@ -9,8 +9,19 @@ class Program extends Model
 {
     use HasFactory;
 
-    protected $fillable =['description'];
+    protected $fillable =[
+        'description',
+        'rle_status'
+    ];
 
+    public function getStatus(){
+
+        if( $this->rle_status == 0){
+         return "No RLE";
+        }
+        return "With RLE";
+
+     }
 
      /** relationship */
        public function subjects()
@@ -20,8 +31,9 @@ class Program extends Model
 
 
        public function students(){
-        return $this->hasMany(Student::class);
+        return $this->belongsTo(Student::class);
        }
+
 
 }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subject;
+use App\Models\Grading_status;
 
 class SubjectController extends Controller
 {
@@ -18,9 +19,10 @@ class SubjectController extends Controller
         //
 
         $subjects = Subject::all();
+        $status = Grading_status::find(1);
 
 
-        return view('admin/subject.index', compact('subjects'));
+        return view('admin/subject.index', compact('subjects','status'));
     }
 
     /**
@@ -44,7 +46,9 @@ class SubjectController extends Controller
         //
         Subject::create([
             'subject_code' =>$request->code,
-            'subject_description' =>$request->description
+            'subject_description' =>$request->description,
+            'subject_type' =>$request->type,
+            'subject_laboratory_status' =>$request->labstatus,
 
         ]);
 
@@ -86,7 +90,8 @@ class SubjectController extends Controller
         Subject::where('id','=',$id)->update([
             'subject_code' =>$request->subcode,
             'subject_description' =>$request->subdescription,
-
+            'subject_type' =>$request->type,
+            'subject_laboratory_status' =>$request->labstatus,
             ]);
 
             return redirect()->back()->with('update', 'Subject updated!');

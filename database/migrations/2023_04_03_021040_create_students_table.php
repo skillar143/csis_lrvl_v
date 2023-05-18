@@ -17,13 +17,14 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('student_id');
             $table->string('name');
-            $table->string('cellphone');
+            $table->bigInteger('program_id');
             $table->string('sex');
+            $table->string('cellphone');
             $table->string('bday');
             $table->string('bplace');
             $table->string('address');
             $table->string('status');
-
+            $table->string('year');
             $table->timestamps();
         });
     }

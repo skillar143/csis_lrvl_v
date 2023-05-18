@@ -31,7 +31,7 @@
 
                      <!-- Validation Errors -->
                      <x-auth-validation-errors class="mb-4 text-danger" :errors="$errors" />
-
+                     
                         <div class="row input-group-newsletter">
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
@@ -54,11 +54,12 @@
                                 <div class="mt-2">
                                     <button class="btn btn-info btn-lg log" type="submit" >{{ __('Log in') }}</button>
 
-                                    <!-- <button class="btn btn-danger btn-lg log" type="#" >{{ __('Guest') }}</button> -->
+                                    
                                 </div>
 
                               </form>
                         </div>
+                        @include('admin-layouts._alert')
                 </div>
             </div>
         </div>
@@ -75,11 +76,13 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="{{ asset('js/scripts.js') }}"></script>
+   
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+       
     </body>
 </html>
 

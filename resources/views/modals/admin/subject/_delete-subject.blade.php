@@ -11,7 +11,7 @@
             @method('DELETE')
               @csrf
 
-                <div class="modal-body" id="subject">
+                <div class="modal-body px-5 py-4" id="subject">
                
                     <div class="form-group d-flex">
                         <label for="delcode" style="width: 100%; padding:1px">Subject Code

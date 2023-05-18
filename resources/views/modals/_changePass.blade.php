@@ -26,7 +26,7 @@
                         <label for="inputPasswordNewVerify">Verify</label>
                         <input type="password" class="form-control" id="inputPasswordNewVerify" name="verifyPass" required="">
                         <span class="form-text small text-muted">
-                                To confirm, type the new password again.
+                        Please confirm your new password by typing it again
                             </span>
                     </div>
                 </div>

@@ -4,8 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Student;
-use App\Models\Program;
+use Illuminate\Support\Facades\Hash;
+
+use App\Models\{
+    Student,
+    User,
+    Program,
+    Curriculum,
+    Assessment,
+    Grading_status
+};
 
 class StudentController extends Controller
 {
@@ -14,13 +22,14 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function  reg_index()
+    public function  index($s_status)
     {
         //
         $programs = Program::all();
-        $students = Student::where('status','=',"1")->get();
+        $students = Student::where('status','=',$s_status)->with('program')->get();
+        $status = Grading_status::find(1);
 
-        return view ('admin/student.index',compact('students','programs'));
+        return view ('admin/student.index',compact('students','programs','status','s_status'));
 
     }
 
@@ -43,11 +52,23 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
-        if($request->status == "1"){
+        $password = Hash::make('password');
+        $name = $request->fn." ".$request->mi.". ".$request->ln;
+        $email = $request->studentid."@student.educ";
+
+        Student::create(['student_id' =>$request->studentid,'name' =>$name,'program_id' =>$request->course,
+            'cellphone' =>$request->contact,'sex' =>$request->gender,'bday' =>$request->bday,'bplace' =>$request->bplace,
+            'address' =>$request->address,'status' =>$request->status,'year' =>$request->year]);
+
+        User::create(["name"=> $name,"username"=> $request->studentid,"email" => $email,"password" => "$password"])
+         ->attachRole('3');
+
+
+         if($request->status == "0"){
             dd("regular");
         }
 
-        if($request->status == "2"){
+        if($request->status == "1"){
             dd("irregular");
         }
 
@@ -85,6 +106,10 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         //
+        Student::where('id','=',$id)->update(['name' =>$request->name,'program_id' =>$request->course,'cellphone' =>$request->contact,
+            'sex' =>$request->gender,'bday' =>$request->bday,'bplace' =>$request->bplace,'address' =>$request->address,
+            'status' =>$request->status,'year' =>$request->year ]);
+            return redirect()->back()->with('update', 'Student updated!');
     }
 
     /**
@@ -96,5 +121,14 @@ class StudentController extends Controller
     public function destroy($id)
     {
         //
+
+        $user = User::where('username', $id)->first();
+        if ($user) {
+            $user->roles()->detach();
+
+            Student::where('student_id','=',$id)->delete();
+            User::where('username','=',$id)->delete();
+        }
+        return redirect()->back()->with('delete', 'Student deleted!');
     }
 }

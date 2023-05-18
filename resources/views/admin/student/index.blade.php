@@ -2,10 +2,11 @@
 
 @section('content')
 
-<div class="card shadow mb-4">
+<div class="card shadow mb-4 animated--grow-in">
     <div class="card-header py-3 d-flex">
         <div class="">
-            <h6 class="m-0 font-weight-bold text-primary h5">Students</h6>
+            <h6 class="m-0 font-weight-bold text-primary h5">
+                {{ $s_status ? 'Irregular':'Regular' }} Students</h6>
         </div>
         <div class="ml-auto">
             <a href="#" class="btn btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#AddstudentModal">
@@ -17,16 +18,19 @@
         </div>
 
     </div>
-    <div class="card-body">
+    <div class="card-body p-5">
         <div class="table-responsive">
-            <table class="table" id="dataTable" width="100%" cellspacing="0">
-                <thead class="bg-primary text-light">
+            <table class="table p-3" id="dataTable" width="100%" cellspacing="0">
+                <thead class="text-dark">
                     <tr>
                         <th class="">ID</th>
                         <th class="">Name</th>
+                        <th class="">Program</th>
                         <th class="">Sex</th>
                         <th class="">Cell No.</th>
+                        <th class="">Birthday</th>
                         <th class="">Address</th>
+                        <th class="">Year</th>
                         <th class="">Action</th>
                     </tr>
                 </thead>
@@ -34,30 +38,33 @@
                 <tbody>
                 @foreach ($students as $student)
                    <tr>
-                     <td>{{$faculty->student_id}}</td>
-                     <td>{{$faculty->name}}</td>
-                     <td>{{$faculty->sex}}</td>
-                     <td>{{$faculty->cellphone}}</td>
-                     <td>{{$faculty->address}}</td>
-
-
-
-                     <td class="text-center">
-                     <a href="#" class="btn btn-sm btn-info btn-icon-split edit-faculty" data-toggle="modal" data-target="#editFaculty"
-                          data-id="{{$student->id}}" data-name="{{$student->name}}" data-sex="{{$student->sex}}"
-                          data-number="{{$student->cellphone}}" data-address="{{$student->address}}" data-teacherid="{{$student->student_id}}">
+                     <td>{{$student->student_id}}</td>
+                     <td>{{$student->name}}</td>
+                     <td>{{$student->program->description}}</td>
+                     <td>{{$student->sex}}</td>
+                     <td>{{$student->cellphone}}</td>
+                     <td>{{$student->bday}}</td>
+                     <td>{{$student->address}}</td>
+                     <td>{{$student->getYear()}}</td>
+                     <td class="d-flex">
+                     <a href="#" class="btn btn-sm btn-info btn-icon-split m-1 edit-student" data-toggle="modal" data-target="#editStudent"
+                          data-id="{{$student->id}}" data-studentid="{{$student->student_id}}" data-name="{{$student->name}}" data-course="{{ $student->program_id }}"
+                          data-sex="{{$student->sex}}" data-contact="{{$student->cellphone}}" data-bday="{{ $student->bday }}" data-bplace="{{ $student->bplace }}"
+                          data-address="{{$student->address}}" data-year="{{ $student->year }}" data-status="{{ $student->status }}">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-pen"></i>
                                 </span>
-                                <span class="text px-3">Edit</span>
+                                <span class="text d-none d-xl-block">Edit</span>
                             </a>
 
-                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-faculty"  data-toggle="modal" data-target="#deleteFaculty"
-                            data-id="{{$student->id}}" data-name="{{$student->name}}" data-sex="{{$student->sex}}">
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split m-1 delete-student"  data-toggle="modal" data-target="#deleteStudent"
+                            data-id="{{$student->id}}" data-studentid="{{$student->student_id}}" data-name="{{$student->name}}" data-course="{{ $student->program_id }}"
+                          data-sex="{{$student->sex}}" data-contact="{{$student->cellphone}}" data-bday="{{ $student->bday }}" data-bplace="{{ $student->bplace }}"
+                          data-address="{{$student->address}}" data-year="{{ $student->year }}" data-status="{{ $student->status }}">
                                 <span class="icon text-white-50">
                                 <i class="fas fa-minus"></i>
                                 </span>
-                                <span class="text">Delete</span>
+                                <span class="text d-none d-xl-block">Delete</span>
                             </a>
                      </td>
                    </tr>
@@ -70,7 +77,9 @@
     </div>
 </div>
 
-@include('modals.admin._create-student')
+@include('modals.admin.student._create-student')
+@include('modals.admin.student._edit-student')
+@include('modals.admin.student._delete-student')
 
 
 

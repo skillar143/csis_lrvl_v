@@ -10,7 +10,7 @@
             <form id="facultyUpdate" method="post">
             @method('PUT')
             @csrf
-                <div class="modal-body">
+                <div class="modal-body py-4 px-5">
                     <!-- text box teacher id -->
                     <div class="form-group d-flex" >
                         <label for="eteacherid" style="width: 30%; padding:1px">Teacher ID</label>

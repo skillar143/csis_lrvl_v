@@ -9,7 +9,7 @@
             </div>
             <form action="{{ route('faculty.store') }}" method="post">
                 @csrf
-                <div class="modal-body">
+                <div class="modal-body p-5">
                     <!-- text box teacher id -->
                     <div class="form-group d-flex" >
                         <label for="teacherid" style="width: 20%; padding:1px">Teacher ID</label>
@@ -29,8 +29,8 @@
                         <label for="contact" style="padding:1px" class="m-1 mr-5">Contact</label>
                         <input type="tel" style="width: 30%; padding:1px" class="form-control ml-3 mr-5" id="contact" name="contact" autocomplete="off" pattern="[0-9]{11}" required>
 
-                        <label for="gender" style="padding:1px" class="m-1 mr-5">Sex</label>
-                            <select name="gender" id="gender" style="width: 30%; padding:1px" class="form-control " required>
+                        <label for="teachergender" style="padding:1px" class="m-1 mr-5">Sex</label>
+                            <select name="gender" id="teachergender" style="width: 30%; padding:1px" class="form-control " required>
                                 <option selected disabled>Choose...</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>

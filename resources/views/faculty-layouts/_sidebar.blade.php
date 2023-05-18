@@ -23,7 +23,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Registration
+        
     </div>
 
     <!-- Nav Item - Student Collapse Menu-->
@@ -66,49 +66,28 @@
        Class Record
     </div>
 
-    <!-- Nav Item - Term -->
-    <li class="nav-item ">
-        <a class="nav-link" href="#">
-            <i class="fas fa-toggle-on"></i>
-            <span>Activate Term</span></a>
-    </li>
-
-    <!-- Nav Item - Grade Summary -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-award"></i>
-            <span>Grade Summary</span></a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInputs"
+            aria-expanded="true" aria-controls="collapseInputs">
+            <i class="text-gray-400 fas fa-tasks"></i>
+            <span>Student Inputs</span>
+        </a>
+        <div id="collapseInputs" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Subject:</h6>
+                @foreach($subjects as $sub)
+                <a class="collapse-item text-truncate" href="buttons.html">{{ $sub->subjects->subject_code.'-'.$sub->subjects->subject_description }}</a>
+                @endforeach
+            </div>
+        </div>
     </li>
 
-    <!-- Nav Item - Grade Sheet -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-list-alt"></i>
-            <span>Grading Sheet</span></a>
-    </li>
-
-     <!-- Nav Item - Assess Grade -->
-     <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-id-card"></i>
-            <span>Assess Grade</span></a>
-    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- Heading -->
     
-
-    <!-- Nav Item - Archive -->
-
-    <!-- Nav Item - Archive Collapse Menu -->
-
-    
-
-
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

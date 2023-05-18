@@ -9,10 +9,18 @@
             </div>
             <form action="{{ route('course.store') }}" method="post">
                 @csrf
-                <div class="modal-body">
+                <div class="modal-body px-5 py-4">
                     <div class="form-group">
                         <input type="text" class="form-control" name="description" autocomplete="off"
                             placeholder="Program Title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <select name="status" id="gender" class="form-control " required>
+                            <option selected disabled>Choose RLE status</option>
+                            <option value="0">w/o RLE</option>
+                            <option value="1">w/ RLE</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">

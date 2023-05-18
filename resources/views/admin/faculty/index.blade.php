@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="card shadow mb-4">
+<div class="card shadow mb-4 animated--grow-in">
     <div class="card-header py-3 d-flex">
         <div class="">
             <h6 class="m-0 font-weight-bold text-primary h5">Teachers</h6>
@@ -17,17 +17,17 @@
         </div>
 
     </div>
-    <div class="card-body">
+    <div class="card-body p-5">
         <div class="table-responsive">
-            <table class="table" id="dataTable" width="100%" cellspacing="0">
-                <thead class="bg-primary text-light">
+            <table class="table p-3" id="dataTable" width="100%" cellspacing="0">
+                <thead class="text-dark">
                     <tr>
                         <th class="">ID</th>
                         <th class="">Name</th>
                         <th class="">Sex</th>
                         <th class="">Cell No.</th>
                         <th class="">Address</th>
-                        <th class="">Action</th>
+                        <th class="d-flex">Action</th>
                     </tr>
                 </thead>
 
@@ -39,33 +39,31 @@
                      <td>{{$faculty->sex}}</td>
                      <td>{{$faculty->cellphone}}</td>
                      <td>{{$faculty->address}}</td>
-
-
-
-                     <td class="text-center">
-                        <a href="#" class="btn btn-sm btn-success btn-icon-split m-1">
+                     <td class="d-flex">
+                   
+                        <a href="{{ route('faculty.view', $faculty->id)}}" class="btn btn-sm btn-success btn-icon-split m-1">
                             <span class="icon text-white-50">
                                 <i class="fas fa-eye"></i>
                                 </span>
-                                <span class="text px-3 d-none d-xl-block">View</span>
+                                <span class="text px-2 d-none d-xl-block">View</span>
                         </a>
 
-                     <a href="#" class="btn btn-sm btn-info btn-icon-split edit-faculty" data-toggle="modal" data-target="#editFaculty"
+                        <a href="#" class="btn btn-sm btn-info btn-icon-split m-1 edit-faculty" data-toggle="modal" data-target="#editFaculty"
                           data-id="{{$faculty->id}}" data-name="{{$faculty->name}}" data-sex="{{$faculty->sex}}"
                           data-number="{{$faculty->cellphone}}" data-address="{{$faculty->address}}" data-teacherid="{{$faculty->teacher_id}}">
-                                <span class="icon text-white-50">
-                                <i class="fas fa-pen"></i>
-                                </span>
-                                <span class="text px-3 d-none d-xl-block">Edit</span>
-                            </a>
+                            <span class="icon text-white-50">
+                            <i class="fas fa-pen"></i>
+                            </span>
+                            <span class="text px-2 d-none d-xl-block">Edit</span>
+                        </a>
 
-                            <a href="#" class="btn btn-sm btn-danger btn-icon-split my-1 delete-faculty"  data-toggle="modal" data-target="#deleteFaculty"
-                            data-id="{{$faculty->teacher_id}}" data-name="{{$faculty->name}}" data-sex="{{$faculty->sex}}">
-                                <span class="icon text-white-50">
-                                <i class="fas fa-minus"></i>
-                                </span>
-                                <span class="text px-3 d-none d-xl-block">Delete</span>
-                            </a>
+                        <a href="#" class="btn btn-sm btn-danger btn-icon-split m-1 delete-faculty"  data-toggle="modal" data-target="#deleteFaculty"
+                          data-id="{{$faculty->teacher_id}}" data-name="{{$faculty->name}}" data-sex="{{$faculty->sex}}">
+                            <span class="icon text-white-50">
+                            <i class="fas fa-minus"></i>
+                            </span>
+                            <span class="text px-2 d-none d-xl-block">Delete</span>
+                        </a>
                      </td>
                    </tr>
                 @endforeach
@@ -76,7 +74,6 @@
         </div>
     </div>
 </div>
-
 
 
 

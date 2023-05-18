@@ -17,6 +17,7 @@ class CreateProgramsTable extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->string('description');
+            $table->integer('rle_status');
             $table->timestamps();
 
         });
