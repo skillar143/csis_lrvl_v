@@ -20,9 +20,24 @@
                 </span>
                 <span class="text d-none d-xl-block">Add Subject</span>
             </a>
+
+            @if( $course->rle_status == '1' )
+                <a href="#" class="btn btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#firstRLE">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span class="text d-none d-xl-block">Add RLE</span>
+                </a>
+            @endif
         </div>
 
+
+
     </div>
+
+
+
+
     <div class="card-body">
 
    <!-- first semester -->
@@ -38,9 +53,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                
 
-                @forelse ($firstyear->where('semester', '1') as $subject )
+
+                @forelse ($curriculumData['year' . '1']->where('semester', '1') as $subject )
                    <tr>
                      <td class=" ">{{ $subject->subjects->subject_code }}</td>
                      <td class=" ">{{ $subject->subjects->subject_description }}</td>
@@ -80,7 +95,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($firstyear->where('semester', '2') as $subject)
+                    @forelse ($curriculumData['year' . '1']->where('semester', '2') as $subject)
                     <tr>
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
@@ -111,7 +126,7 @@
 
 </div>
 
-@if(!$firstyear->isEmpty())
+@if(!$curriculumData['year' . '1']->isEmpty())
     <!-- second year -->
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex">
@@ -125,6 +140,14 @@
                 </span>
                 <span class="text d-none d-xl-block">Add Subject</span>
             </a>
+            @if( $course->rle_status == '1' )
+            <a href="#" class="btn btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#secondRLE">
+                <span class="icon text-white-50">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="text d-none d-xl-block">Add RLE</span>
+            </a>
+        @endif
         </div>
 
     </div>
@@ -143,7 +166,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($secondyear->where('semester', '1') as $subject)
+                    @forelse ($curriculumData['year' . '2']->where('semester', '1') as $subject)
                     <tr>
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
@@ -183,7 +206,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($secondyear->where('semester', '2') as $subject)
+                    @forelse ($curriculumData['year' . '2']->where('semester', '2') as $subject)
                     <tr>
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
@@ -214,7 +237,7 @@
 </div>
 @endif
 
-@if(!$secondyear->isEmpty())
+@if(!$curriculumData['year' . '2']->isEmpty())
 <!-- third year -->
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex">
@@ -228,6 +251,14 @@
                 </span>
                 <span class="text d-none d-xl-block">Add Subject</span>
             </a>
+            @if( $course->rle_status == '1' )
+            <a href="#" class="btn btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#thirdRLE">
+                <span class="icon text-white-50">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="text d-none d-xl-block">Add RLE</span>
+            </a>
+        @endif
         </div>
 
     </div>
@@ -246,7 +277,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($thirdyear->where('semester', '1') as $subject)
+                    @forelse ($curriculumData['year' . '3']->where('semester', '1') as $subject)
                     <tr>
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
@@ -286,7 +317,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($thirdyear->where('semester', '2') as $subject)
+                    @forelse ($curriculumData['year' . '3']->where('semester', '2') as $subject)
                     <tr>
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
@@ -317,7 +348,7 @@
 </div>
 @endif
 
-@if(!$thirdyear->isEmpty())
+@if(!$curriculumData['year' . '3']->isEmpty())
 <!-- fourth year -->
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex">
@@ -331,6 +362,14 @@
                 </span>
                 <span class="text d-none d-xl-block">Add Subject</span>
             </a>
+            @if( $course->rle_status == '1' )
+            <a href="#" class="btn btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#fourthRLE">
+                <span class="icon text-white-50">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="text d-none d-xl-block">Add RLE</span>
+            </a>
+        @endif
         </div>
 
     </div>
@@ -349,7 +388,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($fourthyear->where('semester', '1') as $subject)
+                    @forelse ($curriculumData['year' . '4']->where('semester', '1') as $subject)
                     <tr>
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
@@ -389,7 +428,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($fourthyear->where('semester', '2') as $subject)
+                    @forelse ($curriculumData['year' . '4']->where('semester', '2') as $subject)
                     <tr>
                         <td class=" ">{{ $subject->subjects->subject_code }}</td>
                         <td class=" ">{{ $subject->subjects->subject_description }}</td>
@@ -426,5 +465,11 @@
 @include('modals.admin.curricula._add-secondyear-subject')
 @include('modals.admin.curricula._add-thirdyear-subject')
 @include('modals.admin.curricula._add-fourthyear-subject')
+
+@include('modals.admin.curricula._add-firstyear-rle')
+@include('modals.admin.curricula._add-secondyear-rle')
+@include('modals.admin.curricula._add-thirdyear-rle')
+@include('modals.admin.curricula._add-fourthyear-rle')
+
 
 @endsection

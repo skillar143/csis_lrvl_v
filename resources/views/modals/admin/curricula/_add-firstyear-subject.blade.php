@@ -43,9 +43,6 @@
                     <button class="btn btn-sm btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-sm btn-outline-success" >Save</button>
                 </div>
-                @foreach ($subjects as $subject)
-
-                @endforeach
             </form>
         </div>
     </div>

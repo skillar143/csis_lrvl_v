@@ -20,39 +20,30 @@ class CurriculumController extends Controller
     public function index($id)
     {
         //
-        $subjects = Subject::orderBy('subject_code', 'asc')->get();
+        $subjects = Subject::orderBy('subject_code', 'asc')
+        ->where('subject_type','=','0')
+        ->get();
 
-        $firstyear = Curriculum::with('subjects')
-            ->where('year',"=","1")
-            ->where('course_id',"=",$id)
+        $rles = Subject::orderBy('subject_code', 'asc')
+        ->where('subject_type','=','1')
+        ->get();
 
-            ->get();
+            $years = [1, 2, 3, 4];
+            $curriculumData = [];
 
-        $secondyear = Curriculum::with('subjects')
-            ->where('course_id',"=",$id)
-            ->where('year',"=","2")
-            ->orderBy('subject_id', 'asc')
-            ->get();
-
-
-        $thirdyear = Curriculum::with('subjects')
-            ->where('course_id',"=",$id)
-            ->where('year',"=","3")
-            ->orderBy('subject_id', 'asc')
-            ->get();
-
-
-        $fourthyear = Curriculum::with('subjects')
-            ->where('course_id',"=",$id)
-            ->where('year',"=","4")
-            ->orderBy('subject_id', 'asc')
-            ->get();
+            foreach ($years as $year) {
+                $curriculum = Curriculum::with('subjects')
+                    ->where('year', $year)
+                    ->where('course_id', $id)
+                    ->orderBy('subject_id', 'asc')
+                    ->get();
+                $curriculumData['year' . $year] = $curriculum;
+            }
 
 
         $course = Program::findOrFail($id);
         $status = Grading_status::find(1);
-       // dd($course->Description);
-        return view ('admin/curriculum.index', compact('course','subjects','firstyear','secondyear','thirdyear','fourthyear','status'));
+        return view ('admin/curriculum.index', compact('course','subjects','rles','status','curriculumData'));
     }
 
     /**
@@ -158,7 +149,7 @@ class CurriculumController extends Controller
         Curriculum::where('course_id','=',$year)
         ->where('subject_id','=',$id)
         ->delete();
-        
+
         return redirect()->back()->with('delete', 'Subject deleted!');
     }
-} 
+}

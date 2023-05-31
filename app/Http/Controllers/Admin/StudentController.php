@@ -64,14 +64,13 @@ class StudentController extends Controller
          ->attachRole('3');
 
 
-         if($request->status == "0"){
-            dd("regular");
-        }
-
-        if($request->status == "1"){
-            dd("irregular");
-        }
-
+        // if($request->status == "0"){
+        //    dd("regular");
+        //}
+        //if($request->status == "1"){
+        //    dd("irregular");
+        //}
+        return redirect()->back()->with('success', 'Student Added!');
     }
 
     /**
